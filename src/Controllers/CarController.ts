@@ -17,7 +17,6 @@ class CarController {
   
   public async CreateCar() {
     const body: ICar = { ...this.req.body };
-    console.log(body, 'r');
 
     try {
       const newCar = await this.service.create(body);
