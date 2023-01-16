@@ -1,6 +1,7 @@
 import IMotorcycle from '../Interfaces/IMotorcycle';
 
 export default class Motorcycle {
+  // CRIO A CLASS Motorcycle PARA QUE POSSO CRIAR INSTACIAS DELA 
   protected id: string | undefined;
   protected model: string;
   protected year: number;
