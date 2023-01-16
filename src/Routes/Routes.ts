@@ -8,4 +8,14 @@ routes.post(
   (req, res, next) => new ControllerCar(req, res, next).CreateCar(),
 );
 
+routes.get(
+  '/cars',
+  (req, res, next) => new ControllerCar(req, res, next).findCar(),
+);
+
+routes.get(
+  '/cars/:id',
+  (req, res, next) => new ControllerCar(req, res, next).idFindCar(),
+);
+
 export default routes;
