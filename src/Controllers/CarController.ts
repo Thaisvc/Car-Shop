@@ -54,7 +54,6 @@ class CarController {
       const Car = await this.service.findById(id);
       if (Car) {
         const { message, status } = await this.service.updateCarId(id, bodyUpdate);
-        console.log(message);
       
         return this.res.status(status).json(message);
       }

@@ -37,7 +37,7 @@ class CarServices {
     const updadtecar = await carsODM.update(id, body);
     const createdObj = this.createCarDomain(updadtecar);
     
-    return { status: 201, message: createdObj };
+    return { status: 200, message: createdObj };
   }
 }
 export default CarServices;
