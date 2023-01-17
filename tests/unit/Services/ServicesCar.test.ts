@@ -84,4 +84,8 @@ describe('Testa a camada Service', function () {
 
     expect(result).to.be.deep.equal(outputCar);
   });
+
+  afterEach(function () {
+    sinon.restore();
+  });
 });
