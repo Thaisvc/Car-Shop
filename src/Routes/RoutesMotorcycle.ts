@@ -17,4 +17,10 @@ routes.get(
   '/:id',
   (req, res, next) => new ControllerMotorcycles(req, res, next).findId(),
 );
+
+routes.put(
+  '/:id',
+  (req, res, next) => new ControllerMotorcycles(req, res, next).updateById(),
+);
+
 export default routes;
