@@ -36,9 +36,19 @@ class MotorcycleController {
 
   public async findId() {
     const { id } = this.req.params;
-    try {
+    /* try {
       const { status, message } = await this.service.findIdMoto(id);
       return this.res.status(status).json(message);
+    } catch (error) {
+      return this.res.status(422).json({ message: 'Invalid mongo id' });
+    } */
+
+    try {
+      const moto = await this.service.findIdMoto(id);
+      if (!moto) {
+        return this.res.status(404).json({ message: 'Motorcycle not found' });
+      }
+      return this.res.status(200).json(moto);
     } catch (error) {
       return this.res.status(422).json({ message: 'Invalid mongo id' });
     }

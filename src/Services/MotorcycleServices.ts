@@ -20,16 +20,16 @@ class MotorcycleServices {
   public async findALl() {
     const Moto = new MotorcycleODM();
     const findMoto = await Moto.find();
-    return findMoto;
+    return findMoto.map((e) => this.createDomain(e));
   }
 
   public async findIdMoto(id: string) {
     const Moto = new MotorcycleODM();
     const findId = await Moto.findById(id);
-    console.log(findId);
-    if (findId) return { status: 200, message: findId };
+    return this.createDomain(findId);
+    /*  if (findId) return { status: 200, message: findId };
     
-    return { status: 404, message: 'Motorcycle not found' };
+    return { status: 404, message: 'Motorcycle not found' }; */
   }
 }
 

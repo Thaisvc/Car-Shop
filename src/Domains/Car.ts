@@ -1,23 +1,13 @@
 import ICar from '../Interfaces/ICar';
+import Vehicle from './Vehicle';
 // CRIO A CLASS CAR PARA QUE POSSO CRIAR INSTACIAS DELA 
 
-export default class Car {
-  protected id: string | undefined;
-  protected model: string;
-  protected year: number;
-  protected color: string;
-  protected status?: boolean | undefined;
-  protected buyValue: number;
+export default class Car extends Vehicle {
   private doorsQty: number;
   private seatsQty: number;
 
   constructor(carParameters:ICar) {
-    this.id = carParameters.id;
-    this.model = carParameters.model;
-    this.year = carParameters.year;
-    this.color = carParameters.color;
-    this.status = carParameters.status;
-    this.buyValue = carParameters.buyValue;
+    super(carParameters);
     this.doorsQty = carParameters.doorsQty;
     this.seatsQty = carParameters.seatsQty;
   }
