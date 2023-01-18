@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 import { NextFunction, Request, Response } from 'express';
 import IMotorcycle from '../Interfaces/IMotorcycle';
 import ServiceMotorcycle from '../Services/MotorcycleServices';
@@ -65,6 +66,17 @@ class MotorcycleController {
         return this.res.status(status).json(message);
       }
       return this.res.status(404).json({ message: 'Motorcycle not found' });
+    } catch (error) {
+      return this.res.status(422).json({ message: 'Invalid mongo id' });
+    }
+  }
+
+  public async deleteById() {
+    const { id } = this.req.params;
+    try {
+      const motoDel = await this.service.findIdMoto(id);
+      if (!motoDel) return this.res.status(404).json({ message: 'Motorcycle not found' });
+      return this.res.status(200).json();
     } catch (error) {
       return this.res.status(422).json({ message: 'Invalid mongo id' });
     }

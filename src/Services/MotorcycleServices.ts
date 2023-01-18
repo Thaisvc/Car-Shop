@@ -36,6 +36,12 @@ class MotorcycleServices {
     const createdObj = this.createDomain(await updateFile);
     return { status: 200, message: createdObj };
   }
+
+  public async deleteMoto(id: string) {
+    const deleteFile = this.Moto.delete(id);
+    const createdObj = this.createDomain(await deleteFile);
+    return { status: 200, message: createdObj };
+  }
 }
 
 export default MotorcycleServices;
