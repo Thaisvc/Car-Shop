@@ -22,14 +22,19 @@ abstract class AbstractODM<T> {
     return this.model.create({ ...obj });
   }
 
-  public async update(_id: string, objCar: Partial<T>): Promise<T | null> {
+  public async update(_id: string, objCar: Partial<T>): Promise<T | null> { // Partial -> segue uma parete do contrato 
     if (!isValidObjectId(_id)) throw Error('Invalid Mongo id');
   
-    return this.model.findByIdAndUpdate(
+    return this.model.findByIdAndUpdate( // https://mongoosejs.com/docs/api.html#model_Model-findByIdAndUpdate
       { _id },
       { ...objCar } as UpdateQuery<T>,
       { new: true },
     );
+  }
+
+  async delete(id: string): Promise<T | null> {
+    if (!isValidObjectId(id)) throw Error('Invalid Mongo id');
+    return this.model.findByIdAndDelete(id);
   }
 }
   

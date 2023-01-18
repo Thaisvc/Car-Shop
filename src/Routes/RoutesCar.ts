@@ -23,4 +23,8 @@ routes.put(
   (req, res, next) => new ControllerCar(req, res, next).updateCar(),
 );
 
+routes.delete(
+  '/:id',
+  (req, res, next) => new ControllerCar(req, res, next).deleteById(),
+);
 export default routes;

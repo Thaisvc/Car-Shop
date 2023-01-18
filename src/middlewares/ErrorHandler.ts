@@ -12,7 +12,7 @@ class ErrorHandler {
 export default ErrorHandler; */
 // para usar na camada de service um objeto com message e status
 import { NextFunction, Request, Response } from 'express';
-import HttpException from '../Util/http.exception';
+import { HttpException } from '../Util/http.exception';
 
 class ErrorHandler {
   public static handle(err: Error, _req: Request, res: Response, _next: NextFunction) {

@@ -39,5 +39,13 @@ class CarServices {
     
     return { status: 200, message: createdObj };
   }
+
+  public async deleteCar(id: string) {
+    const carsODM = new CarODM();
+    const del = await carsODM.delete(id);
+    const createdObj = this.createCarDomain(del);
+    
+    return { status: 200, message: createdObj };
+  }
 }
 export default CarServices;

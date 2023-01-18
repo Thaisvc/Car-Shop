@@ -6,5 +6,8 @@ class HttpException extends Error {
     this.status = status;
   }
 }
-  
-export default HttpException;
+
+const INVALID_MONGO_ID = 'Invalid mongo id';
+const CAR_NOT_FOUND = 'Car not found';
+
+export { HttpException, INVALID_MONGO_ID, CAR_NOT_FOUND };
